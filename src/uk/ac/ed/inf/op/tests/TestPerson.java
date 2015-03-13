@@ -74,6 +74,33 @@ public class TestPerson {
 		} catch (InvalidParameterException ex) {
 			
 		}
+		
+		try {
+			Person person = new Person("First", "Last", "email@Address.com");
+			fail("An exception wasn't thrown for an invalid email address");
+		} catch (InvalidParameterException ex) {
+			
+		}
+		
+		try {
+			Person person = new Person("First", "Last", "a.b.c@domain.co.uk");
+			fail("An exception wasn't thrown for an invalid email address");
+		} catch (InvalidParameterException ex) {
+			
+		}
+		
+		try {
+			Person person = new Person("First", "Last", "s1234567@ed.ac.uk");
+			fail("An exception wasn't thrown for an invalid email address");
+		} catch (InvalidParameterException ex) {
+			
+		}
+		
+		try {
+			Person person = new Person("First", "Last", "s1234567@ed..uk");
+			fail("An exception wasn't thrown for an invalid email address");
+		} catch (InvalidParameterException ex) {
+			
+		}
 	}
-
 }
